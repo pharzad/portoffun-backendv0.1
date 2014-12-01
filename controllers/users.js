@@ -37,11 +37,23 @@ exports.submitRole = function (req, res)
 			eventId: req.body.eventId,
 			status: 'pending'
 		});
-                user.save(function(err) {
-				if (err)
-					res.send(err);
+		user.save(function (err)
+		{
+			if (err) res.send(err);
 
-				res.json({ message: 'roll submited' });
+			res.json(
+			{
+				message: 'roll submited'
 			});
+		});
+	});
+};
+exports.findUser = function (req, res)
+{
+	Users.findById(req.params.userId, function (err, user)
+	{
+		if (err) res.send(err);
+		res.json(user);
+
 	});
 };

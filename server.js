@@ -36,6 +36,7 @@ router.route('/events/:eventId').get(eventsController.getSingleEvent);
 //User Routes
 router.route('/users').post(usersController.postUser).get(usersController.getUsers);
 router.route('/users/submitRole').put(usersController.submitRole);
+router.route('/users/:userId').get(usersController.findUser);
 
 router.get('/', function (req, res)
 {
